@@ -44,12 +44,8 @@ module.exports = {
 ```
 
 ##Usage
-
-```javascript
-const { Server, Router } = require('anchor-express');
-
-const router = new Router(modules);
-const server = new Server(router.LoadRoutes(), 3000);
+```
+const server = new Server(3000);
 ```
 
 
