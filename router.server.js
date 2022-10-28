@@ -1,8 +1,7 @@
 
 class Router {
     constructor() {
-        const mod = require(`${process.cwd()}/modules.server`)
-        // get base path of the project
+        const mod = require('./modules.server')
         this.route = [];
         this.modules = mod.__lookup__()
     }
@@ -15,4 +14,4 @@ class Router {
     }
 }
 
-module.exports = Router
+module.exports = new Router()
