@@ -1,12 +1,13 @@
 class Server {
     constructor(port, restful = true) {
         const Router = require('./router.server');
-        const middlewares = require('./middlewares.server');
+        const finder = require('anchor-express/finder.server')
+        this.find = new finder()
         this.Rest = require('express')
         this.instance = this.Rest()
         this.routes = Router.LoadRoutes()
         this.port = port
-        this.middlewares = middlewares.__lookup__()
+        this.middlewares = this.find.__lookup__('middlewares/index')
         this.restful = restful
         this.restful && this.instance.use(this.Rest.json());
         this.addMiddleware()
