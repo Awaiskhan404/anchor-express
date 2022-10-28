@@ -48,4 +48,19 @@ module.exports = {
 const server = new Server(3000);
 ```
 
+##CHANGELOG
+
+_anchor-express_>1.2.2 now supports middlewares. To use middleware create a folder named as middlewares and create index with the array of middleware as shown in the example
+
+```
+const middlewares = [
+    {
+        name: 'logger',
+        middleware: require('./logger.middleware')
+    }
+]
+
+module.exports = middlewares
+```
+
 
