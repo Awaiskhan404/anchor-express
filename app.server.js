@@ -1,13 +1,18 @@
 class Server {
     constructor(port, restful = true) {
         const Router = require('./router.server');
+        const middlewares = require('./middlewares.server');
         this.Rest = require('express')
         this.instance = this.Rest()
         this.routes = Router.LoadRoutes()
         this.port = port
-        restful && this.instance.use(this.Rest.json());
+        this.middlewares = middlewares.__lookup__()
+        this.restful = restful
+        this.restful && this.instance.use(this.Rest.json());
+        this.addMiddleware()
         this.addRoute()
         this.start()
+
     }
     addRoute = () => {
         this.routes?.map((route) => {
@@ -19,6 +24,11 @@ class Server {
                     }
                 )
             })
+        })
+    }
+    addMiddleware = () => {
+        this.middlewares?.map((_) => {
+            return this.instance.use(_)
         })
     }
     start = () => {
