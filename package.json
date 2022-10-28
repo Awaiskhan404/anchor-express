@@ -1,0 +1,27 @@
+{
+  "name": "anchor-express",
+  "version": "1.0.0",
+  "description": "Anchor express handles the routing and processes for expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Awaiskhan404/anchor-express.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": [
+    "anchor",
+    "expressjs",
+    "nodejs"
+  ],
+  "author": "Awais khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Awaiskhan404/anchor-express/issues"
+  },
+  "homepage": "https://github.com/Awaiskhan404/anchor-express#readme"
+}
