@@ -1,7 +1,10 @@
+
 class Router {
-    constructor(modules) {
+    constructor() {
+        const mod = require(`${process.cwd()}/modules.server`)
+        // get base path of the project
         this.route = [];
-        this.modules = modules
+        this.modules = mod.__lookup__()
     }
 
     LoadRoutes() {
