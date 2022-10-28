@@ -1,7 +1,6 @@
-const Router = require('./router.server');
-
 class Server {
     constructor(port, restful = true) {
+        const Router = require('./router.server');
         this.Rest = require('express')
         this.instance = this.Rest()
         this.routes = Router.LoadRoutes()
