@@ -4,8 +4,7 @@ class __Modules__ {
     }
     __lookup__() {
         try {
-            const fs = require('fs');
-            const modules = require('./modules');
+            const modules = require(`${process.cwd()}/modules`);
             modules.forEach((module) => {
                 this.modules.push(module)
             });
