@@ -6,12 +6,12 @@ class __Middleware__ {
         try {
             const mid = require(`${process.cwd()}/middlewares/index`);
             mid.forEach((_) => {
-                this.middlewares.push(_.middleware)
+                this.middlewares.push(_)
             });
             return this.middlewares;
         }
         catch (err) {
-            return err;
+            return [];
         }
     }
 }

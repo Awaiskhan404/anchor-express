@@ -6,12 +6,13 @@ class __Modules__ {
         try {
             const modules = require(`${process.cwd()}/modules`);
             modules.forEach((module) => {
+                console.log(`Module ${module.name} loaded`)
                 this.modules.push(module)
             });
             return this.modules;
         }
         catch (err) {
-            return err;
+            return [];
         }
     }
 }

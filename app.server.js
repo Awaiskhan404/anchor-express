@@ -28,7 +28,8 @@ class Server {
     }
     addMiddleware = () => {
         this.middlewares?.map((_) => {
-            return this.instance.use(_)
+            console.log(`Middleware ${_.name} loaded`)
+            return this.instance.use(_.middleware)
         })
     }
     start = () => {
