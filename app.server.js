@@ -33,6 +33,11 @@ class Server {
             return this.instance.use(_.middleware)
         })
     }
+    
+    getInstance = () => {
+        return this.instance
+    }
+    
     start = () => {
         this.instance.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`)
