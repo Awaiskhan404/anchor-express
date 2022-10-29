@@ -50,7 +50,7 @@ const server = new Server(3000);
 
 ##CHANGELOG
 
-_anchor-express_>1.2.2 now supports middlewares. To use middleware create a folder named as middlewares and create index with the array of middleware as shown in the example
+_anchor-express>1.2.2_ now supports middlewares. To use middleware create a folder named as middlewares and create index with the array of middleware as shown in the example
 
 ```
 const middlewares = [
@@ -63,4 +63,11 @@ const middlewares = [
 module.exports = middlewares
 ```
 
+#How to get a server instance
 
+```
+const server = new Server(3000);
+
+const instance=server.getInstance();
+
+```
