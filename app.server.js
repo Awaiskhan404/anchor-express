@@ -15,6 +15,15 @@ class Server {
         this.start()
 
     }
+    /**
+     * @param {array of routes} this
+     * @returns {function ['get','post','put','patch','delete']
+     * 
+     * (params) {
+        
+     }}
+     * 
+    **/
     addRoute = () => {
         this.routes?.map((route) => {
             return route?.map((_) => {
@@ -27,17 +36,30 @@ class Server {
             })
         })
     }
+
+    /**
+     * @param {array of middlewares} this
+     * @returns {function ['use']
+     **/
     addMiddleware = () => {
         this.middlewares?.map((_) => {
             console.log(`Middleware ${_.name} loaded`)
             return this.instance.use(_.middleware)
         })
     }
-    
+
+    /**
+     * @param {ThisParameterType} this
+     * @returns {ThisParameterType.instance}
+     **/
     getInstance = () => {
         return this.instance
     }
-    
+
+    /**
+     * @param {ThisParameterType} this
+     * @returns {ThisParameterType.instance.listen}
+     **/
     start = () => {
         this.instance.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`)

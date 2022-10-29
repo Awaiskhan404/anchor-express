@@ -2,6 +2,10 @@ class __Finder__ {
     constructor() {
         this.__nodes__ = [];
     }
+    /**
+     * @param {string} section_
+     *  @returns {Array}
+     **/
     __lookup__(section_) {
         try {
             const node = require(`${process.cwd()}/${section_}`);
