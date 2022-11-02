@@ -11,7 +11,8 @@
     "url": "git+https://github.com/Awaiskhan404/anchor-express.git"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "anchor-express": "^1.2.5",
   },
   "keywords": [
     "anchor",
