@@ -2,9 +2,11 @@ class Server {
     constructor(port, restful = true) {
         const Router = require('./router.server');
         const finder = require('anchor-express/finder.server')
+        const _except = require('anchor-express/exceptions.server')
         this.find = new finder()
         this.Rest = require('express')
         this.instance = this.Rest()
+        this.exceptionHandler = new _except(this.instance)
         this.routes = Router.LoadRoutes()
         this.port = port
         this.middlewares = this.find.__lookup__('middlewares/index')
@@ -13,7 +15,6 @@ class Server {
         this.addMiddleware()
         this.addRoute()
         this.start()
-
     }
     /**
      * @param {array of routes} this
@@ -63,8 +64,10 @@ class Server {
     start = () => {
         this.instance.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`)
+            this.exceptionHandler.handleException()
         })
     }
+
 }
 
 module.exports = Server
