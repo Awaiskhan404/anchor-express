@@ -8,19 +8,7 @@ This is a simple example of how to use the Anchor Express API. It handles basic 
 
 
 #Structure
-Create a _modules_ folder and create a file _index.js_ that will store moduler information
-
-```
-const modules = [
-    {
-        name: 'shipping',
-        route: require('./shipping/router').route
-    }
-]
-module.exports = modules
-```
-
-In module folder create your modules folder. that will have one _routes.js_ file to store routing of your apis
+In your custom module folder you will have one _router.js_ file to store routing of your apis
 
 ```
 const Shipping = require('./shipping.controller');
