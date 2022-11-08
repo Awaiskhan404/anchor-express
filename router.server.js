@@ -1,10 +1,10 @@
 
 class Router {
     constructor() {
-        const finder = require('anchor-express/finder.server')
-        this.find = new finder()
+        const ModuleLoader = require('anchor-express/module.loader.server')
         this.route = [];
-        this.modules = this.find.__lookup__('modules')
+        this.loader = new ModuleLoader()
+        this.modules = this.loader.__lookup__('modules')
     }
 
     /**
@@ -13,8 +13,7 @@ class Router {
     **/
     LoadRoutes() {
         this.modules?.forEach((module) => {
-            console.log(`Module ${module.name} loaded`)
-            this.route.push(module?.route)
+            this.route.push(module)
         })
         return this.route
     }
