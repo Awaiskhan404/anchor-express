@@ -12,8 +12,8 @@ class Router {
      * @returns {ThisParameterType.route}
     **/
     LoadRoutes() {
-        this.modules?.forEach((module) => {
-            this.route.push(module)
+        this.modules?.forEach((_) => {
+            this.route.push(_)
         })
         return this.route
     }
