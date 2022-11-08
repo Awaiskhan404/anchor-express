@@ -14,10 +14,15 @@ class ModuleLoader {
             const dirs = this.getDirectories(section_);
             if (dirs.length > 0 && dirs !== undefined) {
                 dirs.forEach((dir) => {
-                    console.log(`Module ${dir} loading...`)
                     try {
-                        const module = require(`${process.cwd()}/${section_}/${dir}/router`);
-                        this.__modules__.push(module);
+                        const _ = require(`${process.cwd()}/${section_}/${dir}/router`);
+                        if (_ != {} && this.validateRoute(_)) {
+                            this.__modules__.push(_);
+                            console.log(`Module ${dir} loaded!`)
+                        }
+                        else {
+                            console.log(`Aborted module ${dir} has routes without exported or missing controller, route or method`);
+                        }
                     }
                     catch (e) {
                         console.log(`Aborted module ${dir} routes not found!`)
@@ -34,6 +39,19 @@ class ModuleLoader {
         readdirSync(source, { withFileTypes: true })
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name)
+    validateRoute = mod => {
+        let isValid = false;
+        mod.map((_) => {
+            if (
+                _.controller != undefined
+                && _.route != undefined
+                && _.method != undefined
+            ) {
+                isValid = true;
+            }
+        })
+        return isValid;
+    }
 }
 
 module.exports = ModuleLoader;
