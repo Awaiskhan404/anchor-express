@@ -1,13 +1,26 @@
-#How it works
+## How it works
 
 This is a simple example of how to use the Anchor Express API. It handles basic routing and processes for express js. It is a good starting point for building your own web app.
 
-##Getting Started
+## Getting Started
+
+### Using the cli tool
+
+```
+npm install -g anchor-express-cli
+
+```
+Executing the cli tool will generate the fresh project in your current working directory
+```
+anchor-express-cli
+```
+
+### For manual setup package installation
 
 `npm install anchor-express`
 
 
-#Structure
+## Structure
 In your custom module folder you will have one _router.js_ file to store routing of your apis
 
 ```
@@ -31,12 +44,12 @@ module.exports = {
 
 ```
 
-##Usage
+## Usage
 ```
 const server = new Server(3000);
 ```
 
-##CHANGELOG
+## CHANGELOG
 
 _anchor-express>1.2.2_ now supports middlewares. To use middleware create a folder named as middlewares and create index with the array of middleware as shown in the example
 
@@ -51,7 +64,7 @@ const middlewares = [
 module.exports = middlewares
 ```
 
-#How to get a server instance
+## How to get a server instance
 
 ```
 const server = new Server(3000);
