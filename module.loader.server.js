@@ -9,7 +9,7 @@ class ModuleLoader {
      * @param {string} section_
      * @returns {Array}
      * */
-    __lookup__(section_) {
+    __lookup__(this, section_) {
         try {
             const dirs = this.getDirectories(section_);
             if (dirs.length > 0 && dirs !== undefined) {
