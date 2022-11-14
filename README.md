@@ -8,9 +8,10 @@ This is a simple example of how to use the Anchor Express API. It handles basic 
 
 ```
 npm install -g anchor-express-cli
-
 ```
+
 Executing the cli tool will generate the fresh project in your current working directory
+
 ```
 anchor-express-cli
 ```
@@ -19,8 +20,8 @@ anchor-express-cli
 
 `npm install anchor-express`
 
-
 ## Structure
+
 In your custom module folder you will have one _router.js_ file to store routing of your apis
 
 ```
@@ -41,10 +42,10 @@ const route = [
 module.exports = {
     route
 }
-
 ```
 
 ## Usage
+
 ```
 const server = new Server(3000);
 ```
@@ -70,5 +71,4 @@ module.exports = middlewares
 const server = new Server(3000);
 
 const instance=server.getInstance();
-
 ```
