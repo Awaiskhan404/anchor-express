@@ -6,7 +6,7 @@ class __Finder__ {
      * @param {string} section_
      *  @returns {Array}
      **/
-    __lookup__(this, section_) {
+    __lookup__(section_) {
         try {
             const node = require(`${process.cwd()}/${section_}`);
             node.forEach((_) => {
