@@ -25,7 +25,7 @@ class Server {
      }}
      * 
     **/
-    addRoute = () => {
+    addRoute = (this) => {
         this.routes?.map((route) => {
             return route?.map((_) => {
                 return this.instance[_.method](
@@ -42,7 +42,7 @@ class Server {
      * @param {array of middlewares} this
      * @returns {function ['use']
      **/
-    addMiddleware = () => {
+    addMiddleware = (this) => {
         this.middlewares?.map((_) => {
             console.log(`Middleware ${_.name} loaded`)
             return this.instance.use(_.middleware)
@@ -53,7 +53,7 @@ class Server {
      * @param {ThisParameterType} this
      * @returns {ThisParameterType.instance}
      **/
-    getInstance = () => {
+    getInstance = (this) => {
         return this.instance
     }
 
@@ -61,7 +61,7 @@ class Server {
      * @param {ThisParameterType} this
      * @returns {ThisParameterType.instance.listen}
      **/
-    start = () => {
+    start = (this) => {
         this.instance.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`)
             this.exceptionHandler.handleException()
